@@ -40,6 +40,8 @@ namespace PicrossSolver
             }
 
             Length = length;
+            TableIndex = 0;
+            Layout = SegmentLayout.Unspecified;
 
             InitializeBlockGroups(blockGroupSizes);
             InitializeBlocks();            
@@ -126,8 +128,15 @@ namespace PicrossSolver
             return copyOfBlocks;
         }
 
+        public enum SegmentLayout
+        {
+            Row, Column, Unspecified
+        }
+
         public int Length { get; }
+        public int TableIndex { get; }
         public int SolvedGroups { get; }
         public bool IsSolved { get; }
+        public SegmentLayout Layout { get; }
     }
 }
